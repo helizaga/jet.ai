@@ -1,40 +1,85 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Private Jet Analysis Fullstack Project Overview
 
-## Getting Started
+This is Next.js application designed to compare private jets based on various metrics using OpenAI's GPT-3.5. It allows users to select jets and a comparison category, then displays a ranked list of jets based on the selected metric. The project utilizes Prisma with a PostgreSQL database for data management and TailwindCSS for styling.
 
-First, run the development server:
+## Setup Instructions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+### Prerequisites
+
+- Node.js (v14 or later)
+- npm or yarn
+- PostgreSQL database
+- OpenAI API key
+
+### Installation
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/helizaga/jet.ai.git
+   cd jet.ai
+   ```
+
+2. Install dependencies:
+
+   ```bash
+   npm install
+   # or
+   yarn install
+   ```
+
+3. Create a `.env` file in the root directory with the following content, replacing placeholders with your actual database URL and OpenAI API key:
+
+   ```plaintext
+   DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
+   OPENAI_API_KEY="your_openai_api_key"
+   ```
+
+4. Run the Prisma migrations to set up your database schema:
+
+   ```bash
+   npx prisma migrate dev
+   ```
+
+5. (Optional) Import sample jet data into your database:
+   ```bash
+   node importCsv.ts
+   ```
+
+### Running the Application
+
+- To start the development server:
+
+  ```bash
+  npm run dev
+  # or
+  yarn dev
+  ```
+
+- Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
+
+### Building for Production
+
+- To build the application for production:
+
+  ```bash
+  npm run build
+  # or
+  yarn build
+  ```
+
+- To start the production server:
+  ```bash
+  npm start
+  # or
+  yarn start
+  ```
+
+## Example `.env` File
+
+```plaintext
+DATABASE_URL="postgresql://USER:PASSWORD@HOST:PORT/DATABASE?schema=public"
+OPENAI_API_KEY="your_openai_api_key"
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
-
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
-
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Replace `USER`, `PASSWORD`, `HOST`, `PORT`, and `DATABASE` with your PostgreSQL credentials and `your_openai_api_key` with your actual OpenAI API key.
