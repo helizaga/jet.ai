@@ -1,0 +1,38 @@
+- .env
+- .eslintrc.json
+- .gitignore
+- importCsv.ts
+- jet_facts.csv
+- next-env.d.ts
+- next.config.mjs
+- package-lock.json
+- package.json
+- postcss.config.js
+- prisma
+  - migrations
+    - 20240311190856_init
+      - migration.sql
+    - 20240311193619_add_jet_attributes
+      - migration.sql
+    - migration_lock.toml
+  - schema.prisma
+- public
+  - favicon.ico
+  - next.svg
+  - vercel.svg
+- README.md
+- src
+  - pages
+    - api
+      - hello.ts
+      - jets
+        - compare.ts
+        - index.ts
+        - [id].ts
+    - index.tsx
+    - _app.tsx
+    - _document.tsx
+  - styles
+    - globals.css
+- tailwind.config.ts
+- tsconfig.json
