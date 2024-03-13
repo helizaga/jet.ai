@@ -1,14 +1,7 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 import ComparisonResults from "./ComparisonResults";
-
-interface Jet {
-  id: number;
-  name: string;
-  wingspan: number;
-  numberOfEngines: number;
-  manufacturingYear: number;
-}
+import { Jet } from "@/types/jet";
 
 const comparisonCategories = ["Top Speed", "Fuel Efficiency", "Maximum Seats"];
 

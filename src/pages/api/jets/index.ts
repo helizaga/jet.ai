@@ -1,15 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
 import prisma from "../../../../prisma/prismaClient";
+import { Jet } from "../../../types/jet";
 
 // Define the type for the response data explicitly if known, e.g., Jet[]
 // This can be replaced with the appropriate type based on your data
-interface Jet {
-  id: number;
-  name: string;
-  wingspan: number;
-  numberOfEngines: number;
-  manufacturingYear: number;
-}
 
 export default async function handler(
   req: NextApiRequest,

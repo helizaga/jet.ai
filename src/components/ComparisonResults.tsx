@@ -1,9 +1,6 @@
 import React from "react";
-
+import { ComparisonResultsProps } from "@/types/jet";
 // Assuming comparisonResults is an object with jet names as keys and comparison values as values
-interface ComparisonResultsProps {
-  results: { [key: string]: string };
-}
 
 // Function to extract numeric values from strings like "575 nautical miles"
 const extractNumber = (str: string) => {

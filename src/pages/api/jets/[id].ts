@@ -27,9 +27,19 @@ export default async function handler(
       res.status(404).json({ message: "Jet not found" });
     }
   } catch (error: any) {
-    // Handle any unexpected errors
+    // Alternatively, use (error: unknown)
+    let errorMessage: string;
+
+    // Check if error is an instance of Error and has a message property
+    if (error instanceof Error && error.message) {
+      errorMessage = error.message;
+    } else {
+      // Provide a generic error message if the caught error doesn't have a message property
+      errorMessage = "An unexpected error occurred";
+    }
+
     res
       .status(500)
-      .json({ message: "Internal Server Error", error: error.message });
+      .json({ message: "Internal Server Error", error: errorMessage });
   }
 }
