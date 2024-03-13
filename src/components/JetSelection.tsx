@@ -9,7 +9,7 @@ const JetSelection: React.FC = () => {
   const [jets, setJets] = useState<Jet[]>([]);
   const [selectedJets, setSelectedJets] = useState<number[]>([]);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
-  const [comparisonResults, setComparisonResults] = useState<any>(null); // You might want to define a more specific type for the results
+  const [comparisonResults, setComparisonResults] = useState<any>(null);
 
   useEffect(() => {
     const fetchJets = async () => {
@@ -51,7 +51,7 @@ const JetSelection: React.FC = () => {
           jets: selectedJetNames,
           category: selectedCategory,
         });
-        setComparisonResults(data); // Update your state with the comparison results
+        setComparisonResults(data); // Update state with the comparison results
       } catch (error) {
         console.error("Failed to compare jets:", error);
       }

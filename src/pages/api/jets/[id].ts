@@ -27,7 +27,6 @@ export default async function handler(
       res.status(404).json({ message: "Jet not found" });
     }
   } catch (error: any) {
-    // Alternatively, use (error: unknown)
     let errorMessage: string;
 
     // Check if error is an instance of Error and has a message property
