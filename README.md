@@ -43,7 +43,7 @@ This is Next.js application designed to compare private jets based on various me
 
 5. (Optional) Import sample jet data into your database:
    ```bash
-   node importCsv.ts
+   npx tsx importCsv.ts
    ```
 
 ### Running the Application
