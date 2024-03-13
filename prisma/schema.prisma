@@ -19,7 +19,4 @@ model Jet {
   wingspan          Float
   numberOfEngines   Int
   manufacturingYear Int
-  topSpeed          Int?    @default(0)
-  fuelEfficiency    Float?    @default(0)
-  maximumSeats      Int?      @default(0)
 }

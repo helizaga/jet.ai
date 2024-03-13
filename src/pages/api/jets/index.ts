@@ -9,9 +9,6 @@ interface Jet {
   wingspan: number;
   numberOfEngines: number;
   manufacturingYear: number;
-  topSpeed: number | null;
-  fuelEfficiency: number | null;
-  maximumSeats: number | null;
 }
 
 export default async function handler(
