@@ -18,7 +18,6 @@ export default async function handler(
   }
 
   const { jets, category } = req.body; // Extracting 'jets' and 'category' from the request body
-  console.log(jets);
   // Basic validation for 'jets' and 'category'
   if (
     !jets ||
@@ -42,7 +41,6 @@ export default async function handler(
       prompt += `\n${index + 1}. ${jet}`;
     });
 
-    console.log(prompt);
     // Make the API request to OpenAI
     const response = await openai.chat.completions.create({
       model: "gpt-3.5-turbo",
@@ -52,16 +50,11 @@ export default async function handler(
     });
 
     const rawResults = response.choices[0].message.content;
-    console.log(rawResults);
     const lines = rawResults.trim().split("\n");
-    console.log("Lines:", lines);
     const processedResults: { [key: string]: string } = {}; // This line changes
-    console.log("Processed results:", processedResults);
     lines.forEach((line: string) => {
       // Extract the jet name and comparison value more accurately
-      console.log("Line:", line);
       const match = line.match(/^(?:\d+\. )?([\w\s\-]+): (.+)$/);
-      console.log("Match:", match);
       if (match && match.length >= 3) {
         const jetName = match[1];
         const comparisonValue = match[2];
@@ -80,8 +73,6 @@ export default async function handler(
         }
       }
     });
-
-    console.log("Processed results:", processedResults);
 
     // Send back the simplified key-value pair response
     res.status(200).json(processedResults);

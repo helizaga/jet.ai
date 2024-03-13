@@ -15,7 +15,6 @@ const comparisonCategories = ["Top Speed", "Fuel Efficiency", "Maximum Seats"];
 const JetSelection: React.FC = () => {
   const [jets, setJets] = useState<Jet[]>([]);
   const [selectedJets, setSelectedJets] = useState<number[]>([]);
-  console.log(selectedJets);
   const [selectedCategory, setSelectedCategory] = useState<string>("");
   const [comparisonResults, setComparisonResults] = useState<any>(null); // You might want to define a more specific type for the results
 
@@ -59,7 +58,6 @@ const JetSelection: React.FC = () => {
           jets: selectedJetNames,
           category: selectedCategory,
         });
-        console.log("Comparison results:", data);
         setComparisonResults(data); // Update your state with the comparison results
       } catch (error) {
         console.error("Failed to compare jets:", error);
