@@ -21,14 +21,28 @@ async function importCSV() {
     .on("data", (data) => results.push(data))
     .on("end", async () => {
       for (let jet of results) {
-        await prisma.jet.create({
-          data: {
+        // Check if the jet already exists
+        const existingJet = await prisma.jet.findUnique({
+          where: {
             name: jet.name,
-            wingspan: parseFloat(jet.wingspan),
-            numberOfEngines: parseInt(jet.engines),
-            manufacturingYear: parseInt(jet.year),
           },
         });
+
+        // If the jet doesn't exist, create a new record
+        if (!existingJet) {
+          await prisma.jet.create({
+            data: {
+              name: jet.name,
+              wingspan: parseFloat(jet.wingspan),
+              numberOfEngines: parseInt(jet.engines),
+              manufacturingYear: parseInt(jet.year),
+            },
+          });
+        } else {
+          console.log(
+            `Jet with name ${jet.name} already exists in the database.`
+          );
+        }
       }
       console.log("CSV import completed");
       await prisma.$disconnect();

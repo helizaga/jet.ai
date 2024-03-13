@@ -15,7 +15,7 @@ datasource db {
 
 model Jet {
   id                Int      @id @default(autoincrement())
-  name              String
+  name              String @unique
   wingspan          Float
   numberOfEngines   Int
   manufacturingYear Int
